@@ -107,7 +107,9 @@ You can refer to the example [PlatformIO](../examples/PlatformIO/) to use the ES
   ```
 * How to use the examples and demos in lvgl
 
-  please open the corresponding macros
+  1.Copy the `demos` folder and `examples` folder in the lvgl library file to the `src` folder
+  
+  2.please open the corresponding macros
   ```c
   ...
   /*==================
