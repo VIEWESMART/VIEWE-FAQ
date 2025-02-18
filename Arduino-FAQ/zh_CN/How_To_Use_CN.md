@@ -32,7 +32,7 @@
 | ---------- | -------- |
 | [arduino-esp32](https://github.com/espressif/arduino-esp32) | >= v3.0.0-alpha3 |
 | [ESP32_IO_Expander](https://github.com/esp-arduino-libs/ESP32_IO_Expander) | >= 0.1.0 && < 0.2.0 |
-| [ESP32_Display_Panel](https://github.com/esp-arduino-libs/ESP32_Display_Panel)| > 0.2.1 |
+| [ESP32_Display_Panel](https://github.com/esp-arduino-libs/ESP32_Display_Panel)| >= 1.0.0 |
 
 ### esp32安装
 关于 esp32 的安装，请参阅 [如何在 Arduino IDE 中安装esp32](./How_To_Configure_Arduino-esp32.md#install-esp32)。
