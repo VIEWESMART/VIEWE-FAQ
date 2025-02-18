@@ -26,6 +26,11 @@
       * Click `File- > Preferences`
       ![image](https://github.com/user-attachments/assets/628614e3-5151-4f2e-91f8-394ddb67a3ce)
       ![image](https://github.com/user-attachments/assets/45ba4791-4ef4-40a9-b7d4-5c1223ed9c11)
+
+  * set Sketchbook location
+    *  This directory is the directory of your default repository. You can create a directory and create a `Libraries` in this directory to store the library specifically. The libraries downloaded in the Arduino IDE will be automatically stored in it, and the third-party libraries that the project depends on will also be stored in it
+    ![image](https://github.com/user-attachments/assets/db58a6d4-2822-408e-9a3f-b219ca238e98)
+
   * set `Additional boards manager URLs`: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
       ![image](https://github.com/user-attachments/assets/14b6cdcd-3487-48f9-bb0d-5d0184e18ab1)
 
