@@ -86,25 +86,54 @@ You can refer to the example [PlatformIO](../examples/PlatformIO/) to use the ES
 
 ## How to add an LVGL library and how to configure?
 * How to use it normally
-  
-  1.Download the LVGL library in Arduino, it is best to choose the `V8.4.0` version.
-  
-  2.Find the downloaded LVGL library, copy and paste the `lv_conf_template.h` file into the same directory as the LVGL library.
-  
-  3.Change the `lv_conf_template.h` file name to `lv_conf.h`.
-  
-  4.Open `lv_conf.h` to modify the macro definition and save: `#if 0`--> `#if 1`
-  ```c
-  ...
-  /* clang-format off */
-  #if 1 /*Set it to "1" to enable content*/
 
-  #ifndef LV_CONF_H
-  #define LV_CONF_H
+  LVGL's features and parameters can be adjusted by modifying the [lv_conf.h](../../template_files/lv_conf.h) configuration file. Here's how to configure LVGL:
 
-  #include <stdint.h>
-  ...
-  ```
+  1. **Configuration File Search Rules**
+
+  - When using arduino-esp32 v3 version, LVGL searches for configuration files in priority order: `Current project directory` > `Arduino library directory`
+  - If no configuration file is found, a warning will be shown during compilation
+  - Please ensure at least one directory contains the *lv_conf.h* file
+
+  2. **Configuration File Usage**
+
+  - Single project configuration: Place the configuration file in the project directory
+  - Multiple projects sharing configuration: Place the configuration file in the [Arduino library directory](#where-is-the-arduino-library-directory)
+
+  3. **Configuration Steps**
+  
+      a. Get configuration file template
+  
+      - Navigate to [Arduino library directory](#where-is-the-arduino-library-directory)
+      - Enter the *lvgl* folder
+      - Copy *lv_conf_template.h* to target directory and rename it to *lv_conf.h*
+  
+      b. Enable configuration file
+  
+      - Open *lv_conf.h*
+      - Change the first `#if 0` to `#if 1`
+  
+      c. Common configuration items
+  
+        ```c
+        // Color configuration
+        #define LV_COLOR_DEPTH          16    // Usually use 16-bit color depth (RGB565)
+                                                // Set to 32 to support 24-bit color depth with alpha (ARGB8888)
+        #define LV_COLOR_16_SWAP        0     // SPI/QSPI LCD (like ESP32-C3-LCDkit) needs to set to 1
+        #define LV_COLOR_SCREEN_TRANSP  1     // LCD with alpha needs to set to 1
+        // Memory configuration
+        #define LV_MEM_CUSTOM           1     // Use malloc/free for better performance
+        #define LV_MEMCPY_MEMSET_STD    1     // Use standard library functions
+        // Resource configuration
+        #define LV_FONT_MONTSERRAT_N    1     // Enable required built-in fonts (replace N with font size)
+        // Debug configuration
+        #define LV_USE_PERF_MONITOR     1     // Display CPU usage and FPS
+        #define LV_USE_LOG              1     // Enable logging feature
+        #define LV_LOG_PRINTF           1     // Use printf for log output
+        // Other configuration
+        #define LV_ATTRIBUTE_FAST_MEM   IRAM_ATTR  // Improve performance but will use more SRAM
+        ```
+  
 * How to use the examples and demos in lvgl
 
   1.Copy the `demos` folder and `examples` folder in the lvgl library file to the `src` folder
